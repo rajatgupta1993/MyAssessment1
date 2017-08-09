@@ -10,8 +10,8 @@ module.exports= {
     },
     output: {
         path: resolve('dist'),
-        filename: '[name].js',
-        publicPath: "/dist/"
+        filename: '[name].js'
+      
     },
     plugins: [
         new ExtractTextPlugin({

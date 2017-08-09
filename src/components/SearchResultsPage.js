@@ -11,10 +11,10 @@ export default class SearchResultsPage extends React.Component{
 
 	}
     render(){
-
-    	var displayData= json.filter( (item) => item.title.indexOf(this.props.match.params.query) !==-1 )
-    	debugger;
         
+     
+    	var displayData= json.filter( (item) => item.title.indexOf(this.props.match.params.query) !==-1 );
+      
         return(
           
              <div >

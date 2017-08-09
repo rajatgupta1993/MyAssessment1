@@ -6,36 +6,42 @@ import {json} from '../common/jsonFile'
 export default class home extends React.Component{
 
     constructor(props){
-        super(props);
-        this.state={
-            searchText:''
-        }
-        this.onValueChange=this.onValueChange.bind(this);
+        super(props)
+
+        this.state={ searchText:''}
+this.onValueChange=this.onValueChange.bind(this);
+this.onTileClicked=this.onTileClicked.bind(this);
+
     }
 
     onValueChange(e){
-
         this.setState({
-            searchText: e.target.value
+            searchText: e.target.value,
+            tileId:'2'
         })
     }
 
-    handleClick(e){
+    onTileClicked(e){
+       this.setState({
+       tileId: e.target.getAttribute("id")
+       }) 
 
     }
 
     render(){
+      
         return(
             <div>
 
-                <input type='text' value={this.state.searchText} onChange={this.onValueChange}
+                <input type='text' value={this.state.searchText}  onChange={this.onValueChange}
                 style={{border: '1px solid', marginBottom:'80px',padding:'5px'}} placeholder='search'/>
-
-                <Link to = {`/searchResults/${this.state.searchText}`}> <input type="submit" /></Link>
-                   
-                      
+                <Link to = {`/searchResults/${this.state.searchText}`}><input type="submit" /></Link>
              <div >
-               { json.map( (item) => <Tile key= {item.id} url={item.url} title={item.title}/> )}
+               { json.map( (item) => <Link to = {`/details/${item.id}`}>
+                                            <Tile key= {item.id} url={item.url} title={item.title} id={item.id} 
+                                                  onClick={this.onTileClicked}/>
+                                     </Link> 
+                )}
              </div>
              </div>
         );

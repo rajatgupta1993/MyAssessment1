@@ -3,3 +3,63 @@
         width: 33%;
         text-align: center;
 }
+
+.center{
+            text-align: center;
+}
+
+.left{
+            text-align: 'left';
+            width: 100%;
+            height: 100%;
+}
+
+span{
+        font-size: 20px;
+       
+}
+
+.floatLeft{
+        float:left;
+        
+}
+
+.floatRight{
+      
+      float:right;
+        
+}
+
+.marginBottom{
+        margin-bottom: 25px;
+         
+}
+
+.marginTop{
+            margin-top: 50px;
+}
+
+.backdropStyle {
+        position: absolute;
+        width:60%;
+        height: 4 0%;
+        top: 100px;
+        left: 50%;
+        margin-left: -30%;
+        z-index: 9998;
+        background: rgba(30, 30, 40, 0.05);
+        padding: 10px   ;
+        text-align: center;
+        
+      }
+
+      .key{
+              width:20%;
+                display: inline-block;
+                border: 1px solid
+      }
+        .value{
+                 width:20%;
+                  display: inline-block;
+                   border: 1px solid
+      }

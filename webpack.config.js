@@ -1,20 +1,25 @@
 
 const webpack= require("webpack");
 const {resolve} = require("path");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 module.exports= {
     context: resolve('src'),
     entry: {
         app: './index.js'
     },
+    // output: {
+    //     path: resolve('dist'),
+    //     filename: 'bundle.js'
+    // },
+
     output: {
-        path: resolve('dist'),
-        filename: 'bundle.js',
-    },
+           path :   resolve(__dirname,'public'),
+           filename : 'bundle.js',
+            },
+
     devServer: {
-      
-        historyApiFallback: true
+        inline: true, 
+        port:8080,
+        historyApiFallback: true,
     },
     module: {
         rules: [

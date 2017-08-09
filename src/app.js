@@ -15,7 +15,7 @@ class AppComponent extends React.Component {
                     <Switch>
                         <Route path="/home" component={Home} />
                         <Route path="/searchResults/:query" component={SearchResultsPage} />
-                        <Route path="/details" component={DetailsPage} />
+                        <Route path="/details/:id" component={DetailsPage} />
                         <Redirect from="/" to="/home" />
                     </Switch>
                 </div>
