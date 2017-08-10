@@ -6,9 +6,10 @@ export default class Tiles extends React.Component{
 
     render(){
       
+
         return (
 
-            <div className='imageDiv' onClick={this.props.onClick}>
+            <div className='imageDiv' key={this.props.key} onClick={this.props.onClick}>
                <img src={this.props.url}
                 style={{width: '33%', height:'200px'}}  alt='tile' /> 
                 <div > {this.props.title} </div> 

@@ -35,15 +35,15 @@ module.exports= {
              {
                 test: /\.(jpe?g|png|gif|svg)$/,
                 loader: "file-loader"
-            }
+            },
 
-          /*  {
-                enforce: 'pre',
-                test: [/\.js$/, /\.jsx$/],
-                exclude: /node_modules/,
-                loader: "eslint-loader",
+            // {
+            //     enforce: 'pre',
+            //     test: [/\.js$/, /\.jsx$/],
+            //     exclude: /node_modules/,
+            //     loader: "eslint-loader",
                
-             },*/
+            //  },
         ]
     }
 }

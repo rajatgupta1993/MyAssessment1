@@ -10,7 +10,7 @@ class AppComponent extends React.Component {
     render() {
 
         return (
-            <BrowserRouter>
+            <BrowserRouter forceRefresh={true}>
                 <div>
                     <Switch>
                         <Route path="/home" component={Home} />

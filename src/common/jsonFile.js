@@ -1,11 +1,11 @@
-export var json = [{
+export const json = [{
   url: '/src/resources/reactLogo.png',
   title: 'Test Title1',
   id: 1,
   details: {
     name: 'rajat1',
     company: 'saxo1',
-    age: 24
+    age: 24,
   }
 }, {
   url: '/src/resources/reactLogo.png',
@@ -14,7 +14,7 @@ export var json = [{
   details: {
     name: 'rajat2',
     company: 'saxo2',
-    age: 24
+    age: 24,
   }
 }, {
   url: '/src/resources/reactLogo.png',
@@ -23,7 +23,7 @@ export var json = [{
   details: {
     name: 'rajat3',
     company: 'saxo3',
-    age: 24
+    age: 24,
   }
 }, {
   url: '/src/resources/reactLogo.png',
@@ -32,7 +32,7 @@ export var json = [{
   details: {
     name: 'rajat4',
     company: 'saxo4',
-    age: 24
+    age: 24,
   }
 }, {
   url: '/src/resources/reactLogo.png',
@@ -41,7 +41,7 @@ export var json = [{
   details: {
     name: 'rajat5',
     company: 'saxo5',
-    age: 24
+    age: 24,
   }
 }, {
   url: '/src/resources/reactLogo.png',
@@ -50,7 +50,7 @@ export var json = [{
   details: {
     name: 'rajat6',
     company: 'saxo6',
-    age: 24
+    age: 24,
   }
 }, {
   url: '/src/resources/reactLogo.png',
@@ -59,7 +59,7 @@ export var json = [{
   details: {
     name: 'rajat7',
     company: 'saxo7',
-    age: 24
+    age: 24,
   }
 }, {
   url: '/src/resources/reactLogo.png',
@@ -68,7 +68,7 @@ export var json = [{
   details: {
     name: 'rajat8',
     company: 'saxo8',
-    age: 24
+    age: 24,
   }
 }, {
   url: '/src/resources/reactLogo.png',
@@ -77,13 +77,6 @@ export var json = [{
   details: {
     name: 'rajat9',
     company: 'saxo9',
-    age: 24
+    age: 24,
   }
 }];
-
-
-details: {
-  name: 'rajat'
-  company: 'saxo'
-  age: 24
-}

@@ -22,7 +22,7 @@ export default class DetailsPage extends React.Component {
         this.onTitleChange = this.onTitleChange.bind(this);
         this.onAgeChange = this.onAgeChange.bind(this);
         this.onSaveClicked = this.onSaveClicked.bind(this);
-
+        this.postDataToServer = this.postDataToServer.bind(this);
 
     }
 
@@ -32,17 +32,66 @@ export default class DetailsPage extends React.Component {
     }
 
     getDetails(id) {
+        const url = "http://localhost:3000/details/" + id;
+        fetch(url)
+            .then((resp) => resp.json()) // Transform the data into json
+            .then((dataFromServer) => {
 
-        var data = json.filter((item) => item.id == id);
-
-        this.setState({
-            data: data,
-            title: data[0].title,
-            name: data[0].details.name,
-            company: data[0].details.company,
-            age: data[0].details.age
-        })
+                this.setState({
+                    data: dataFromServer,
+                    title: dataFromServer.title,
+                    name: dataFromServer.details.name,
+                    company: dataFromServer.details.company,
+                    age: dataFromServer.details.age
+                })
+            }).catch(function (error) {
+                console.log(error);
+            });
     }
+    onSaveClicked() {
+
+
+        this.postDataToServer();
+        this.setState({ isModalOpen: false })
+    }
+
+    postDataToServer() {
+        let reqParams = {
+            id: this.state.data.id,
+            url: this.state.data.url,
+            title: this.state.title,
+            details: {
+                name: this.state.name,
+                age: this.state.age,
+                company: this.state.company
+            }
+        }
+
+
+        let reqObj = {
+            method: "POST",
+            body: JSON.stringify(reqParams),
+
+        }
+
+        const url = "http://localhost:3000/update";
+        debugger;
+        fetch(url, reqObj)
+            .then((resp) => resp.json())
+            .then((dataFromServer) => {
+                this.setState({
+                    data: dataFromServer,
+                    title: dataFromServer.title,
+                    name: dataFromServer.details.name,
+                    company: dataFromServer.details.company,
+                    age: dataFromServer.details.age
+                })
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+    }
+
 
     openModal() {
         this.setState({ isModalOpen: true })
@@ -77,18 +126,13 @@ export default class DetailsPage extends React.Component {
         })
     }
 
-    onSaveClicked() {
-
-        alert('data saved');
-        this.setState({ isModalOpen: false })
-    }
 
 
     render() {
 
         console.log(this.state.data);
         return (
-            <div className="left">
+            (this.state.data != null) && (<div className="left">
 
                 {(this.state.isModalOpen) ? (<div className="backdropStyle">
 
@@ -97,7 +141,7 @@ export default class DetailsPage extends React.Component {
                     <div className="marginBottom marginTop">
                         <div>
                             <div className='key'> id: </div>
-                            <div className='value'> {this.state.data[0].id} </div>
+                            <div className='value'> {this.state.data.id} </div>
                         </div>
                     </div>
 
@@ -115,9 +159,9 @@ export default class DetailsPage extends React.Component {
                 </div>) :
                     (
                         <div className="center">
-                            <img src={this.state.data[0].url}
+                            <img src={this.state.data.url}
                                 style={{ width: '300px', height: '200px' }} alt='tile' />
-                            <KeyValuePairComponent key1={"Id :"} value={this.state.data[0].id} editable={false} />
+                            <KeyValuePairComponent key1={"Id :"} value={this.state.data.id} editable={false} />
 
                             <KeyValuePairComponent key1={"Title :"} value={this.state.title} editable={false} />
 
@@ -130,31 +174,7 @@ export default class DetailsPage extends React.Component {
                             <button type="button" onClick={this.openModal}>Edit</button>
                         </div>)}
 
-                {/*<div className="backdropStyle">
-
-                    <div className="floatRight" onClick={this.closeModal}> close </div>
-
-                    <div className="marginBottom">
-                        <div>
-                            <div className='key'> id: </div>
-                            <div className='value'> {this.state.data[0].id} </div>
-                        </div>
-                    </div>
-
-                    <KeyValuePairComponent key1={"Title :"} value={this.state.title} onChange={this.onTitleChange} />
-
-                     <KeyValuePairComponent key1={"Name :"} value={this.state.name} onChange={this.onNameChange} />
-
-                      <KeyValuePairComponent key1={"Company :"} value={this.state.company} onChange={this.onCompanyChange} />
-
-                       <KeyValuePairComponent key1={"Age :"} value={this.state.age} onChange={this.onAgeChange} />
-
-
-                </div>*/}
-
-
-
-            </div>
+            </div>)
         );
     }
 }

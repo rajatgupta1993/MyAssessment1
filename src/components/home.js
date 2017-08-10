@@ -8,10 +8,33 @@ export default class home extends React.Component{
     constructor(props){
         super(props)
 
-        this.state={ searchText:''}
-this.onValueChange=this.onValueChange.bind(this);
-this.onTileClicked=this.onTileClicked.bind(this);
+        this.state={ 
+                     searchText:'' ,
+                     data : ''
+                    };
 
+        this.onValueChange=this.onValueChange.bind(this);
+        this.onTileClicked=this.onTileClicked.bind(this);
+        this.getData=this.getData.bind(this);
+
+
+    }
+
+    componentWillMount(){
+        this.getData();
+    }
+
+    getData(){
+        const url = "http://localhost:3000/home";
+        fetch(url)
+         .then((resp) => resp.json()) // Transform the data into json
+        .then((dataFromServer)=> {
+            console.log(dataFromServer);
+            this.setState({data:dataFromServer});
+    }).catch(function(error) {
+   console.log(error);
+  }); 
+  
     }
 
     onValueChange(e){
@@ -29,21 +52,23 @@ this.onTileClicked=this.onTileClicked.bind(this);
     }
 
     render(){
-      
+      console.log(this.state.data);
+
         return(
-            <div>
+
+            (this.state.data.length>0)&& ( <div>
 
                 <input type='text' value={this.state.searchText}  onChange={this.onValueChange}
                 style={{border: '1px solid', marginBottom:'80px',padding:'5px'}} placeholder='search'/>
                 <Link to = {`/searchResults/${this.state.searchText}`}><input type="submit" /></Link>
              <div >
-               { json.map( (item) => <Link to = {`/details/${item.id}`}>
+               { this.state.data.map( (item) => <Link to = {`/details/${item.id}`}>
                                             <Tile key= {item.id} url={item.url} title={item.title} id={item.id} 
                                                   onClick={this.onTileClicked}/>
                                      </Link> 
                 )}
              </div>
-             </div>
+             </div>)
         );
     }
 }
