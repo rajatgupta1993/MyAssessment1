@@ -10,8 +10,8 @@
     "testScript": "webpack-dev-server --config webpack-dev.config",
     "serverNode": "node server/server.js",
     "start": "npm-run-all --parallel serverNode build:dev ",
-    "build:dev": "webpack-dev-server --open",
-    "build:prod": "webpack-dev-server --config=webpack.prod.js"
+    "build:dev": "webpack-dev-server --config=webpack-dev.config --open",
+    "build:prod": "webpack-dev-server --config=webpack-prod.config.js --open"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +40,7 @@
     "eslint-plugin-xo": "^1.0.0",
     "express": "^4.15.4",
     "less-loader": "^4.0.5",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.2",

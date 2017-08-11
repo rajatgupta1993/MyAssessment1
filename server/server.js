@@ -113,63 +113,19 @@ app.post('/update' , function(req,resp){
     if(error){
         resp.send(JSON.parse(error));
     }else{
-    //     let jsonData= JSON.parse(data);
-    //     jsonData.map( (item) => {
-              
-    //         if(item.id==r.id){
-    //             item.title= r.title;
-    //             item.details.name = r.name;
-    //             item.details.company=r.company;
-    //             item.details.age= r.age;
-
-    //             respObj.id=r.id;
-    //             respObj.title=r.title;
-    //             respObj.url = r.url;
-    //             respObj.details.age =r.age;
-    //             respObj.details.name= r.name;
-    //             respObj.details.company=r.company;
-    //         }
-    //         return item;
-    //     })
-
-    //     console.log("___________________");
-    //     console.log(respObj);
-    //    console.log("___________________");
-
-
-    //     fs.writeFile("./serverData/data.json", JSON.stringify(jsonData),(err)=>{
-
-    //         if(err){
-    //             resp.send({
-    //                 status:"ERROR"
-    //             });
-    //         } else{
-    //             resp.send({
-    //                 status: 'OK',
-    //                 item: respObj
-    //             })
-    //         }
-    //     } )
 
         var result;
       var jsonObject = JSON.parse(data);
       req.on('data', function (obj1) {
-    console.log("__________obj1___________");
-    console.log(obj1);
-    console.log("___________________");
-        var techieData = JSON.parse(new Buffer.from(obj1))
-        var filteredArray =  jsonObject.map(techie => {
-          if (techie.id === techieData.id) {
-            techie = techieData;
-            result=techie;
- console.log("_________  techie ___________");
-    console.log(            techie );
-     console.log("_________  techie ata");
-     console.log(            techieData );
-    console.log("___________________");
+        var requestObject = JSON.parse(new Buffer.from(obj1))
+        var filteredArray =  jsonObject.map(item => {
+          if (item.id === requestObject.id) {
+            item = requestObject;
+            result=item;
+
           }
             
-          return techie
+          return item
         })
         jsonObject= filteredArray;
       });

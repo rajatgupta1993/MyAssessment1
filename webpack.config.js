@@ -21,6 +21,9 @@ module.exports= {
         port:8080,
         historyApiFallback: true,
     },
+
+    plugins:[],
+    
     module: {
         rules: [
             {
@@ -37,13 +40,13 @@ module.exports= {
                 loader: "file-loader"
             },
 
-            // {
-            //     enforce: 'pre',
-            //     test: [/\.js$/, /\.jsx$/],
-            //     exclude: /node_modules/,
-            //     loader: "eslint-loader",
+            {
+                enforce: 'pre',
+                test: [/\.js$/, /\.jsx$/],
+                exclude: /node_modules/,
+                loader: "eslint-loader",
                
-            //  },
+             },
         ]
     }
 }

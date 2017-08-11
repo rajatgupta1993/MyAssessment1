@@ -3,7 +3,7 @@ export const json = [{
   title: 'Test Title1',
   id: 1,
   details: {
-    name: 'rajat1',
+    description: 'rajat1',
     company: 'saxo1',
     age: 24,
   }
@@ -12,7 +12,7 @@ export const json = [{
   title: 'Test Title2',
   id: 2,
   details: {
-    name: 'rajat2',
+    description: 'rajat2',
     company: 'saxo2',
     age: 24,
   }
@@ -21,7 +21,7 @@ export const json = [{
   title: 'Test Title2',
   id: 3,
   details: {
-    name: 'rajat3',
+    description: 'rajat3',
     company: 'saxo3',
     age: 24,
   }
@@ -30,7 +30,7 @@ export const json = [{
   title: 'Test Title4',
   id: 4,
   details: {
-    name: 'rajat4',
+    description: 'rajat4',
     company: 'saxo4',
     age: 24,
   }
@@ -39,7 +39,7 @@ export const json = [{
   title: 'Test Title5',
   id: 5,
   details: {
-    name: 'rajat5',
+    description: 'rajat5',
     company: 'saxo5',
     age: 24,
   }
@@ -48,7 +48,7 @@ export const json = [{
   title: 'Test Title6',
   id: 6,
   details: {
-    name: 'rajat6',
+    description: 'rajat6',
     company: 'saxo6',
     age: 24,
   }
@@ -57,7 +57,7 @@ export const json = [{
   title: 'Test Title7',
   id: 7,
   details: {
-    name: 'rajat7',
+    description: 'rajat7',
     company: 'saxo7',
     age: 24,
   }
@@ -66,7 +66,7 @@ export const json = [{
   title: 'Test Title8',
   id: 8,
   details: {
-    name: 'rajat8',
+    description: 'rajat8',
     company: 'saxo8',
     age: 24,
   }
@@ -75,7 +75,7 @@ export const json = [{
   title: 'Test Title9',
   id: 9,
   details: {
-    name: 'rajat9',
+    description: 'rajat9',
     company: 'saxo9',
     age: 24,
   }
